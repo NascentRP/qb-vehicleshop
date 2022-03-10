@@ -186,7 +186,7 @@ local function createVehZones(shopName) -- This will create an entity zone if co
         local combo = ComboZone:Create(zones, {name = "vehCombo", debugPoly = false})
         combo:onPlayerInOut(function(isPointInside)
             local insideShop = getShopInsideOf()
-            if isPointInside then
+            if isPointInside and insideShop ~= nil then
                 if PlayerData.job.name == Config.Shops[insideShop]['Job'] or Config.Shops[insideShop]['Job'] == 'none' then
                     exports['qb-menu']:showHeader(vehHeaderMenu)
                 end
